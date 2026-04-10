@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Rute Home (Bawaan Laravel atau buat view sendiri)
 Route::get('/', function () {
-    return view('welcome'); // Pastikan file welcome.blade.php ada
+    return view('profil'); // Pastikan file welcome.blade.php ada
 });
 
 // Rute Kontak (Dari tugas sebelumnya)
