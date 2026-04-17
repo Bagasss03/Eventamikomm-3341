@@ -12,12 +12,12 @@ https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/ <br>
 
 Tugas 2
 
-1. Halaman Dashboard : 
-2. Halaman Event :
-3. Halaman Transaksi : 
-4. Halaman Beranda :
-5. Halaman Detail Event : 
-6. Halaman Chheckout :  
+1. Halaman Dashboard : http://127.0.0.1:8000/admin
+2. Halaman Event : http://127.0.0.1:8000/admin-events.html
+3. Halaman Transaksi : http://127.0.0.1:8000/admin-transactions.html
+4. Halaman Beranda : http://127.0.0.1:8000/index.html#events
+5. Halaman Detail Event : http://127.0.0.1:8000/event-detail.html
+6. Halaman Chheckout : http://127.0.0.1:8000/checkout.html
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
