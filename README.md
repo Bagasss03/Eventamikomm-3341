@@ -12,7 +12,7 @@ https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/ <br>
 
 Tugas 2
 
-1. Halaman Dashboard : http://127.0.0.1:8000/admin
+1. Halaman Dashboard : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin
 2. Halaman Event : http://127.0.0.1:8000/admin-events.html
 3. Halaman Transaksi : http://127.0.0.1:8000/admin-transactions.html
 4. Halaman Beranda : http://127.0.0.1:8000/index.html#events
