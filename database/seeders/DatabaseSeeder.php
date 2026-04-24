@@ -11,20 +11,8 @@ use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // 0. Opsional: Hapus data lama agar tidak duplikat saat dijalankan ulang
-        // Schema::disableForeignKeyConstraints();
-        // User::truncate();
-        // Event::truncate();
-        // Category::truncate();
-        // Schema::enableForeignKeyConstraints();
-
-        // 1. Akun Admin Utama
-        // Menggunakan updateOrCreate agar tidak error jika dijalankan berkali-kali
         User::updateOrCreate(
             ['email' => 'admin@amikom.ac.id'],
             [
@@ -33,22 +21,15 @@ class DatabaseSeeder extends Seeder
                 'role'     => 'admin',
             ]
         );
-
-        // 2. Insert Kategori Event
-        // Gunakan updateOrCreate agar slug unik tidak menyebabkan error
-        // Ganti bagian kategori jadi seperti ini:
             $categoryIT = Category::create([
                 'name' => 'Seminar IT',
-                'slug' => 'seminar-it', // Kolom ini wajib ada!
+                'slug' => 'seminar-it', 
             ]);
 
             $categoryEnt = Category::create([
                 'name' => 'Entertainment',
-                'slug' => 'entertainment', // Kolom ini juga wajib ada!
+                'slug' => 'entertainment', 
             ]);
-
-        // 3. Insert Sampel Events
-        // Event 1: Jazz Night
         Event::updateOrCreate(
             ['title' => 'Jazz Night 2025'],
             [
@@ -62,7 +43,6 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Event 2: Hackaton
         Event::updateOrCreate(
             ['title' => 'Hackaton - Unleash Your Inner Developer'],
             [
@@ -76,7 +56,6 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Event 3: AI Summit
         Event::updateOrCreate(
             ['title' => 'AI & FUTURE TECH SUMMIT 2026'],
             [
