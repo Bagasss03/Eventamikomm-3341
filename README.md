@@ -19,6 +19,10 @@ Tugas 2
 5. Halaman Detail Event : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/event-detail.html <br>
 6. Halaman Chheckout : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/checkout <br>
 
+Tugas 3
+
+Menambahkan database migration seeding
+
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
