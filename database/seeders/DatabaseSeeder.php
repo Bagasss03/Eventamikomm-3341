@@ -10,12 +10,17 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
+        // 0. Opsional: Hapus data lama agar tidak duplikat saat dijalankan ulang
+        // Schema::disableForeignKeyConstraints();
+        // User::truncate();
+        // Event::truncate();
+        // Category::truncate();
+        // Schema::enableForeignKeyConstraints();
+
         // 1. Akun Admin Utama
+        // Menggunakan updateOrCreate agar tidak error jika dijalankan berkali-kali
         User::updateOrCreate(
             ['email' => 'admin@amikom.ac.id'],
             [
@@ -25,14 +30,21 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. Insert 3 Kategori Event
-        $catIT = Category::updateOrCreate(['slug' => 'seminar-it'], ['name' => 'Seminar IT']);
-        $catEnt = Category::updateOrCreate(['slug' => 'entertainment'], ['name' => 'Entertainment']);
-        $catSport = Category::updateOrCreate(['slug' => 'olahraga'], ['name' => 'Olahraga']);
+        // 2. Insert Kategori Event
+        // Gunakan updateOrCreate agar slug unik tidak menyebabkan error
+        // Ganti bagian kategori jadi seperti ini:
+            $categoryIT = Category::create([
+                'name' => 'Seminar IT',
+                'slug' => 'seminar-it', // Kolom ini wajib ada!
+            ]);
 
-        // 3. Insert 6 Jenis Kegiatan Event
-        
-        // Event 1 (Entertainment)
+            $categoryEnt = Category::create([
+                'name' => 'Entertainment',
+                'slug' => 'entertainment', // Kolom ini juga wajib ada!
+            ]);
+
+        // 3. Insert Sampel Events
+        // Event 1: Jazz Night
         Event::updateOrCreate(
             ['title' => 'Jazz Night 2026'],
             [
@@ -46,7 +58,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Event 2 (Seminar IT)
+        // Event 2: Hackaton
         Event::updateOrCreate(
             ['title' => 'Hackaton Amikom 2026'],
             [
@@ -60,7 +72,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // Event 3 (Seminar IT)
+        // Event 3: AI Summit
         Event::updateOrCreate(
             ['title' => 'AI & Future Tech Summit'],
             [
