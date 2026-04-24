@@ -12,9 +12,9 @@ https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/ <br>
 
 Tugas 2
 
-1. Halaman Dashboard : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin
-2. Halaman Event : http://127.0.0.1:8000/admin-events.html
-3. Halaman Transaksi : http://127.0.0.1:8000/admin-transactions.html
+1. Halaman Dashboard : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin-dashboard.html <br>
+2. Halaman Event : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin-events.html <br>
+3. Halaman Transaksi : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin-transactions.html <br>
 4. Halaman Beranda : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/ <br>
 5. Halaman Detail Event : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/event-detail.html <br>
 6. Halaman Chheckout : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/checkout <br>
