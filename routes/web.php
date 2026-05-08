@@ -32,7 +32,7 @@ Route::get('/tentang', function() {
 });
 
 Route::get('/kontak', function() {
-    return view('contact');
+    return view('kontak');
 });
 
 Route::get('/profil', function(){
