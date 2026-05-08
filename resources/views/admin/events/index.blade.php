@@ -15,11 +15,11 @@
 
 <div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
     <div class="overflow-x-auto">
-        <table class="w-full text-left border-collapse">
+<table class="w-full text-left border-collapse">
             <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
                 <tr>
                     <th class="px-8 py-4">No</th>
-                    <th class="px-8 py-4">Posters</th>
+                    <th class="px-8 py-4">Poster</th>
                     <th class="px-8 py-4">Event</th>
                     <th class="px-8 py-4">Harga / Stok</th>
                     <th class="px-8 py-4">Aksi</th>

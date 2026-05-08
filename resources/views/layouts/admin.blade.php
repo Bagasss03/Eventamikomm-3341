@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,10 +15,10 @@
     </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900 flex min-h-screen"> -->
+<body class="bg-slate-50 text-slate-900 flex min-h-screen">
 
     <!-- Sidebar -->
-    <!-- <aside class="w-64 bg-indigo-900 text-indigo-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
+    <aside class="w-64 bg-indigo-900 text-indigo-100 flex flex-col p-6 space-y-8 sticky top-0 h-screen">
         <div class="flex items-center gap-3">
             <div
                 class="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-indigo-900 font-bold text-xl">
@@ -69,12 +69,12 @@
                 Keluar
             </a>
         </div>
-    </aside> -->
+    </aside>
 
     <!-- Main Content -->
-    <!-- <main class="flex-1 p-10 overflow-y-auto"> -->
+    <main class="flex-1 p-10 overflow-y-auto">
         <!-- Header -->
-        <!-- <header class="flex justify-between items-center mb-10">
+        <header class="flex justify-between items-center mb-10">
             <div>
                 <h1 class="text-3xl font-black">Dashboard Ringkasan</h1>
                 <p class="text-slate-500 font-medium">Selamat datang kembali, Admin!</p>
@@ -89,15 +89,15 @@
                         class="rounded-xl">
                 </div>
             </div>
-        </header> -->
+        </header>
 
         <!-- Stats Grid -->
-        <!-- @yield('content')
+        @yield('content')
     </main>
 
 </body>
 
-</html> -->
+</html> --}}
 
 <!DOCTYPE html>
 <html lang="en">
