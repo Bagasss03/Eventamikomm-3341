@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\EventController;
+// use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -44,4 +44,3 @@ Route::get('/katalog', function(){
 Route::get('/bantuan', function(){
     return view('bantuan');
 });
-
