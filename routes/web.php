@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\EventController;
+// use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -21,7 +21,6 @@ Route::get('/events', [EventController::class, 'indexAdmin'])->name('events.inde
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('events', EventAdminController::class);
 });
-
 
 Route::get('/', function () {
     return view('welcome');
