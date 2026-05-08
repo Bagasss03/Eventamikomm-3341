@@ -19,7 +19,7 @@
             <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
                 <tr>
                     <th class="px-8 py-4">No</th>
-                    <th class="px-8 py-4">Poster</th>
+                    <th class="px-8 py-4">Posters</th>
                     <th class="px-8 py-4">Event</th>
                     <th class="px-8 py-4">Harga / Stok</th>
                     <th class="px-8 py-4">Aksi</th>
