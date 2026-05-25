@@ -1,23 +1,24 @@
 @extends('layouts.admin')
 @section('content')
-  <main class="flex-1 p-10 overflow-y-auto">
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-10">
-            <div>
-                <h1 class="text-3xl font-black">Dashboard Ringkasan</h1>
-                <p class="text-slate-500 font-medium">Selamat datang kembali, Admin!</p>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="text-right hidden md:block">
-                    <p class="font-bold">Admin Super</p>
-                    <p class="text-xs text-slate-400">Penyelenggara Utama</p>
-                </div>
-                <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border flex items-center justify-center p-1">
-                    <img src="https://ui-avatars.com/api/?name=Admin+Super&background=6366f1&color=fff"
-                        class="rounded-xl">
-                </div>
-            </div>
-        </header>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AmikomEventHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 flex min-h-screen">
+
 
         <!-- Stats Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
@@ -69,7 +70,8 @@
         <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
             <div class="p-8 border-b flex justify-between items-center">
                 <h3 class="font-black text-xl">Transaksi Terakhir</h3>
-                <a href="admin-transactions.html" class="text-indigo-600 font-bold hover:underline">Lihat Semua</a>
+                {{-- <a href="admin-transactions.html" class="text-indigo-600 font-bold hover:underline">Lihat Semua</a> --}}
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 text-sm font-semibold">Lihat Semua</a>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
@@ -123,4 +125,8 @@
             </div>
         </div>
     </main>
+
+</body>
+
+</html>
 @endsection

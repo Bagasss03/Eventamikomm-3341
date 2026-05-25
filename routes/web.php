@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\EventController;
+// use App\Http\Controllers\EventController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
+use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
+use App\Http\Controllers\Admin\PartnerController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/event/1', [EventController::class, 'show'])->name('events.show');
 Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
 Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
 
@@ -18,19 +21,21 @@ Route::get('/events', [EventController::class, 'indexAdmin'])->name('events.inde
 // dan seterusnya...
 });
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('events', EventAdminController::class);
+Route::resource('events', EventAdminController::class);
+ Route::resource('categories', CategoryAdminController::class);
+ Route::resource('partners', PartnerController::class);
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/tentang', function() {
     return '<h1>Ini adalah halaman tentang aplikasi Event Hub</h1>';
 });
 
 Route::get('/kontak', function() {
-    return view('kontak');
+    return view('contact');
 });
 
 Route::get('/profil', function(){

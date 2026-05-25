@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Partner extends Model
 {
     protected $fillable = [
         'name',
-        'slug'
+        'logo_url'
     ];
 }
