@@ -40,7 +40,7 @@ class CheckoutController extends Controller
 
         // 3. Generate Kode TRX (Unik)
         $orderId = 'TRX-' . time() . '-' . Str::random(5);
-        $totalPrice = $event->price + 5000; // Menambahkan biaya admin (dummy)
+        $totalPrice = $event->price + 5000; 
 
         // 4. Merekam Transaksi ke Database
         $transaction = Transaction::create([

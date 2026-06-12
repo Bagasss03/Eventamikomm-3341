@@ -22,7 +22,6 @@ Route::get('/my-ticket/{order_id}', [\App\Http\Controllers\TicketController::cla
 Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
-// Legacy redirects for static .html files to dynamic Laravel routes
 Route::get('/index.html', function() {
     return redirect()->route('home');
 });

@@ -33,7 +33,7 @@
                 <textarea name="description" rows="4" class="w-full px-5 py-3 rounded-xl border border-slate-200 outline-none" required></textarea>
             </div>
             <div>
-                <label class="block text-sm font-bold text-slate-700 mb-2">Harga (Rp)</label>
+                <label class="block text-sm font-bold text-slate-700 mb-2">Harga</label>
                 <input type="number" name="price" class="w-full px-5 py-3 rounded-xl border border-slate-200 outline-none" required>
             </div>
             <div>
