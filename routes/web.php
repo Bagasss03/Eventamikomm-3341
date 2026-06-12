@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EventController as EventAdminController;
 use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\CheckoutController;
 
 
 // ==========================================
@@ -70,5 +71,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         // Laporan Transaksi
         Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
+
+        Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
+        Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
     });
 });
