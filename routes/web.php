@@ -1,51 +1,73 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\EventController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController as EventAdminController;
 use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\TransactionController;
 
+// ==========================================
+// ROUTE PUBLIK
+// ==========================================
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/event/1', [EventController::class, 'show'])->name('events.show');
-Route::get('/checkout', [EventController::class, 'checkout'])->name('checkout');
-Route::get('/my-ticket', [EventController::class, 'ticket'])->name('ticket');
-
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/events', [EventController::class, 'indexAdmin'])->name('events.index');
-
-// dan seterusnya...
-});
-Route::prefix('admin')->name('admin.')->group(function () {
-Route::resource('events', EventAdminController::class);
- Route::resource('categories', CategoryAdminController::class);
- Route::resource('partners', PartnerController::class);
-});
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
+Route::get('/checkout', [\App\Http\Controllers\EventController::class, 'checkout'])->name('checkout');
+Route::get('/my-ticket', [\App\Http\Controllers\TicketController::class, 'show'])->name('ticket');
 
 Route::get('/tentang', function() {
     return '<h1>Ini adalah halaman tentang aplikasi Event Hub</h1>';
-});
+})->name('tentang');
 
 Route::get('/kontak', function() {
-    return view('contact');
-});
+    return view('kontak');
+})->name('kontak');
 
 Route::get('/profil', function(){
     return view('profil');
-});
+})->name('profil');
 
 Route::get('/katalog', function(){
     return view('katalog');
-});
+})->name('katalog');
 
 Route::get('/bantuan', function(){
     return view('bantuan');
+})->name('bantuan');
+
+// Redirect /login ke /admin/login
+Route::get('/login', function () {
+    return redirect()->route('admin.login');
+})->name('login');
+
+// ==========================================
+// ROUTE ADMIN (GROUP BERAWALAN /ADMIN)
+// ==========================================
+Route::prefix('admin')->name('admin.')->group(function () {
+    
+    // Rute Login (Guest)
+    Route::middleware('guest')->group(function () {
+        Route::get('login', [AuthController::class, 'showLogin'])->name('login');
+        Route::post('login', [AuthController::class, 'login'])->name('login.post');
+    });
+
+    // Rute Logout (Auth)
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+    // Rute Administrasi Utama (Auth & Admin Middleware)
+    Route::middleware(['auth', 'admin'])->group(function () {
+        
+        // Dashboard
+        Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
+        // CRUD Resources
+        Route::resource('events', EventAdminController::class);
+        Route::resource('categories', CategoryAdminController::class);
+        Route::resource('partners', PartnerController::class);
+        
+        // Laporan Transaksi
+        Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
+    });
 });

@@ -13,15 +13,13 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
-    public function run(): void
-    {
-        // 1. Akun Admin Utama
+    public function run() {
         User::updateOrCreate(
             ['email' => 'admin@amikom.ac.id'],
             [
                 'name'     => 'Admin Amikom',
-                'password' => Hash::make('password'),
-                'role'     => 'admin',
+                'password' => bcrypt('password'),
+                'role'     => 'admin'
             ]
         );
 
