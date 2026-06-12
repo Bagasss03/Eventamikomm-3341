@@ -22,6 +22,32 @@ Route::get('/my-ticket/{order_id}', [\App\Http\Controllers\TicketController::cla
 Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
+// Legacy redirects for static .html files to dynamic Laravel routes
+Route::get('/index.html', function() {
+    return redirect()->route('home');
+});
+Route::get('/event-detail.html', function() {
+    $event = \App\Models\Event::first();
+    return $event ? redirect()->route('events.show', $event->id) : redirect()->route('home');
+});
+Route::get('/checkout.html', function() {
+    $event = \App\Models\Event::first();
+    return $event ? redirect()->route('checkout.create', $event->id) : redirect()->route('home');
+});
+Route::get('/ticket.html', function() {
+    $latestTrx = \App\Models\Transaction::latest()->first();
+    return $latestTrx ? redirect()->route('ticket', $latestTrx->order_id) : redirect()->route('home');
+});
+Route::get('/admin-dashboard.html', function() {
+    return redirect()->route('admin.dashboard');
+});
+Route::get('/admin-events.html', function() {
+    return redirect()->route('admin.events.index');
+});
+Route::get('/admin-transactions.html', function() {
+    return redirect()->route('admin.transactions.index');
+});
+
 Route::get('/tentang', function() {
     return '<h1>Ini adalah halaman tentang aplikasi Event Hub</h1>';
 })->name('tentang');
