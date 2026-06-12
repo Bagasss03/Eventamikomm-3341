@@ -50,8 +50,11 @@ class CheckoutController extends Controller
             'customer_email' => $request->customer_email,
             'customer_phone' => $request->customer_phone,
             'total_price'    => $totalPrice,
-            'status'         => 'pending', // Status Awal
+            'status'         => 'success', // Set status ke success karena tiket langsung terbit
         ]);
+
+        // Kurangi stok tiket event
+        $event->decrement('stock');
 
         // 5. Arahkan ke halaman tiket setelah checkout berhasil
         return redirect()->route('ticket', ['order_id' => $orderId])->with('success', 'Pesanan berhasil!');
