@@ -11,6 +11,10 @@ class Event extends Model
         'location', 'price', 'stock', 'poster_path'
     ];
 
+    protected $casts = [
+        'date' => 'date',
+    ];
+
     public function category() {
         return $this->belongsTo(Category::class);
     }

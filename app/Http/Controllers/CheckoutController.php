@@ -50,11 +50,10 @@ class CheckoutController extends Controller
             'customer_email' => $request->customer_email,
             'customer_phone' => $request->customer_phone,
             'total_price'    => $totalPrice,
-            'status'         => 'Pending', // Status Awal
+            'status'         => 'pending', // Status Awal
         ]);
 
-        // 5. Arahkan ke rute dummy halaman sukses sementara
-        // (Akan kita ubah di Pertemuan selanjutnya menuju Midtrans)
-        return redirect('/'); 
+        // 5. Arahkan ke halaman tiket setelah checkout berhasil
+        return redirect()->route('ticket', ['order_id' => $orderId])->with('success', 'Pesanan berhasil!');
     }
 }

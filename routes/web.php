@@ -16,8 +16,11 @@ use App\Http\Controllers\CheckoutController;
 // ==========================================
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show'])->name('events.show');
-Route::get('/checkout', [\App\Http\Controllers\EventController::class, 'checkout'])->name('checkout');
-Route::get('/my-ticket', [\App\Http\Controllers\TicketController::class, 'show'])->name('ticket');
+Route::get('/my-ticket/{order_id}', [\App\Http\Controllers\TicketController::class, 'show'])->name('ticket');
+
+// Checkout (publik, tanpa login)
+Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::get('/tentang', function() {
     return '<h1>Ini adalah halaman tentang aplikasi Event Hub</h1>';
@@ -72,7 +75,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Laporan Transaksi
         Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
 
-        Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
-        Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
+
     });
 });
