@@ -9,6 +9,13 @@ use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\TransactionController;
 
+// Temporary route to migrate and seed DB on the cloud
+Route::get('/setup-db', function() {
+    \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+    \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+    return 'Database migrated and seeded successfully!';
+});
+
 // ==========================================
 // ROUTE PUBLIK
 // ==========================================
@@ -56,8 +63,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Rute Logout (Auth)
     Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-    // Rute Administrasi Utama (Auth & Admin Middleware)
-    Route::middleware(['auth', 'admin'])->group(function () {
+    // Rute Administrasi Utama (Admin Middleware)
+    Route::middleware('admin')->group(function () {
         
         // Dashboard
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
