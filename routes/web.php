@@ -93,7 +93,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     // Rute Logout (Auth)
     Route::post('logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-    // Rute Administrasi Utama (Admin Middleware)
+    // Rute Administrasi Utama 
     Route::middleware('admin')->group(function () {
         
         // Dashboard
