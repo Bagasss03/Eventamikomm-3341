@@ -17,7 +17,7 @@ Tugas 2
 3. Halaman Transaksi : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/admin-transactions.html <br>
 4. Halaman Beranda : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/ <br>
 5. Halaman Detail Event : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/event-detail.html <br>
-6. Halaman Chheckout : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/checkout <br>
+6. Halaman Chheckout : https://eventamikomm-3341-main-6vywhg.free.laravel.cloud/checkout.html <br>
 
 Tugas 3
 
