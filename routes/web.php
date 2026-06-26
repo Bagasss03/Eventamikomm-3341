@@ -20,6 +20,9 @@ Route::get('/event/{id}', [\App\Http\Controllers\EventController::class, 'show']
 Route::get('/my-ticket/{order_id}', [\App\Http\Controllers\TicketController::class, 'show'])->name('ticket');
 
 // Checkout (publik, tanpa login)
+Route::get('/checkout', function() {
+    return redirect()->route('home');
+});
 Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
