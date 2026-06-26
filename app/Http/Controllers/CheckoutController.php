@@ -11,6 +11,18 @@ class CheckoutController extends Controller
 {
     public function create(Event $event)
     {
+        if (request()->has('debug')) {
+            $key = config('midtrans.server_key');
+            $client = config('midtrans.client_key');
+            return [
+                'has_server_key' => !empty($key),
+                'server_key_length' => strlen($key),
+                'has_client_key' => !empty($client),
+                'client_key_length' => strlen($client),
+                'env' => config('app.env')
+            ];
+        }
+
         $categories = \App\Models\Category::all();
 
         return view('checkout.create', compact('event', 'categories'));
