@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CheckoutController;
 
 
+
 // ==========================================
 // ROUTE PUBLIK
 // ==========================================
@@ -67,6 +68,9 @@ Route::get('/bantuan', function(){
     return view('bantuan');
 })->name('bantuan');
 
+Route::get('/payment/{order_id}', [CheckoutController::class, 'payment'])->name('checkout.payment');
+
+        Route::get('/success/{order_id}', [CheckoutController::class, 'success'])->name('checkout.success');
 // Redirect /login ke /admin/login
 Route::get('/login', function () {
     return redirect()->route('admin.login');
@@ -101,5 +105,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
 
 
+
+       
     });
 });
