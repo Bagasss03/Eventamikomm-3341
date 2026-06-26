@@ -23,6 +23,17 @@ Route::get('/my-ticket/{order_id}', [\App\Http\Controllers\TicketController::cla
 Route::get('/checkout', function() {
     return redirect()->route('home');
 });
+Route::get('/debug-midtrans', function() {
+    $key = config('midtrans.server_key');
+    $client = config('midtrans.client_key');
+    return [
+        'has_server_key' => !empty($key),
+        'server_key_length' => strlen($key),
+        'has_client_key' => !empty($client),
+        'client_key_length' => strlen($client),
+        'env' => config('app.env')
+    ];
+});
 Route::get('/checkout/{event}', [CheckoutController::class, 'create'])->name('checkout.create');
 Route::post('/checkout/{event}', [CheckoutController::class, 'store'])->name('checkout.store');
 
