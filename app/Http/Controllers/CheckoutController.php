@@ -45,11 +45,16 @@ class CheckoutController extends Controller
 
         // --- INTEGRASI SNAP MIDTRANS ---
         // Konfigurasi Kredensial Environment Midtrans
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        \Midtrans\Config::$isProduction = false; // Mode Sandbox!
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$isProduction = config('midtrans.is_production');
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
-        \Midtrans\Config::$curlOptions = [CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4];
+        if (config('app.env') === 'local') {
+            \Midtrans\Config::$curlOptions = [
+                CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+                CURLOPT_HTTPHEADER => ['X-Prevent-Bug: 1']
+            ];
+        }
 
         // Susun Paket Array Data Transaksi
         $params = [
@@ -96,9 +101,14 @@ class CheckoutController extends Controller
         $transaction = Transaction::where('order_id', $order_id)->firstOrFail();
 
         // Validasi status pembayaran asli dari Midtrans (Mencegah manipulasi URL)
-        \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-        \Midtrans\Config::$isProduction = false;
-        \Midtrans\Config::$curlOptions = [CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4];
+        \Midtrans\Config::$serverKey = config('midtrans.server_key');
+        \Midtrans\Config::$isProduction = config('midtrans.is_production');
+        if (config('app.env') === 'local') {
+            \Midtrans\Config::$curlOptions = [
+                CURLOPT_IPRESOLVE => CURL_IPRESOLVE_V4,
+                CURLOPT_HTTPHEADER => ['X-Prevent-Bug: 1']
+            ];
+        }
 
         try {
             $midtransStatus = \Midtrans\Transaction::status($order_id);
