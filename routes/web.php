@@ -107,6 +107,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         // Laporan Transaksi
         Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
+        Route::delete('transactions/{transaction}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 
         Route::post('/midtrans/callback', [MidtransWebhookController::class, 'handle']);
 

@@ -17,6 +17,7 @@
                     <th class="px-8 py-4">Tgl Transaksi</th>
                     <th class="px-8 py-4">Status</th>
                     <th class="px-8 py-4 text-right">Total Tagihan</th>
+                    <th class="px-8 py-4 text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody class="divide-y border-t">
@@ -62,10 +63,20 @@
                             Rp {{ number_format($trx->total_price, 0, ',', '.') }}
                         </td>
 
+                        <td class="px-8 py-6 text-center">
+                            <form action="{{ route('admin.transactions.destroy', $trx->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus transaksi ini?')" class="inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-50 hover:bg-red-100 text-red-600 font-bold text-xs px-3 py-2 rounded-xl transition border border-red-100 uppercase tracking-wider">
+                                    Hapus
+                                </button>
+                            </form>
+                        </td>
+
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="px-8 py-10 text-center text-slate-500">Belum ada transaksi</td>
+                        <td colspan="7" class="px-8 py-10 text-center text-slate-500">Belum ada transaksi</td>
                     </tr>
                 @endforelse
             </tbody>
