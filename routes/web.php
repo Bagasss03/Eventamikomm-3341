@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\CategoryController as CategoryAdminController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\MidtransWebhookController;
 
 
 
@@ -107,7 +108,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Laporan Transaksi
         Route::get('transactions', [TransactionController::class, 'index'])->name('transactions.index');
 
-
+        Route::post('/midtrans/callback', [MidtransWebhookController::class, 'handle']);
 
        
     });
