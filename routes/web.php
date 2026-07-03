@@ -110,7 +110,5 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('transactions/{transaction}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 
         Route::post('/midtrans/callback', [MidtransWebhookController::class, 'handle']);
-
-       
     });
 });
