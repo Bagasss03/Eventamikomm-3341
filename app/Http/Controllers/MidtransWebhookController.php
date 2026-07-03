@@ -34,7 +34,7 @@ class MidtransWebhookController extends Controller
             return response()->json(['message' => 'Already processed']);
         }
 
-        // Logika Penerjemahan Status Midtrans API ke Status Database Lokal
+        // Logika Penerjemahan Status Midtrans API ke Status Database Lokall
         if ($transactionStatus == 'capture') {
             if ($fraudStatus == 'challenge') {
                 $transaction->status = 'challenge';
@@ -51,7 +51,7 @@ class MidtransWebhookController extends Controller
             $transaction->status = 'pending';
         }
 
-        // Simpan perubahan status ke database
+        // Simpan perubahan status ke databasee
         $transaction->save();
         
         return response()->json(['message' => 'OK']);
